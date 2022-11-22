@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const animeArrayDataThunk = createAsyncThunk(
-    'animeArrayDataThunk', async( argument, { rejectWithValue }) => {
+    'anime/animeArrayDataThunk', async( id, { rejectWithValue }) => {
         try {
-            const res = await fetch(`https://api.jikan.moe/v4/anime`)
-            const data = await res.json()
+            const res = await fetch(`https://api.jikan.moe/v4/anime/${id}`)
+            const data = await res.json();
             if(data.error) {
                 throw new Error(data.error.message)
             }
@@ -17,29 +17,31 @@ export const animeArrayDataThunk = createAsyncThunk(
 )
 
 export const animeArrayDataFetchSlice = createSlice({
-    name: 'fetchSlice',
+    name: 'animeArrayData',
     initialState: {
-        animeArrayData: null,
+        animeArrayData: {},
         isLoading: false,
         error: null
     },
-    extraReducers: {
-        [animeArrayDataThunk.fulfilled]: (state, action) => { 
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+        .addCase(animeArrayDataThunk.fulfilled, (state, action) => { 
             state.animeArrayData = action.payload; 
             state.isLoading = false; 
             state.error = null; 
-        },
-        [animeArrayDataThunk.pending]: (state) => { 
+        })
+        .addCase(animeArrayDataThunk.pending, (state) => {
             state.animeArrayData = null; 
             state.isLoading = true; 
             state.error = null;
-        },
-        [animeArrayDataThunk.rejected]: (state, action) => { 
+        })
+        .addCase(animeArrayDataThunk.rejected, (state, action) => { 
             state.animeArrayData = null; 
             state.isLoading = false; 
             state.error = action.payload; 
-        },
-    }
+        })
+    },
 })
 
 export default animeArrayDataFetchSlice.reducer
