@@ -1,12 +1,71 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { animeArrayDataThunk } from '../../slice/animeArrayDataFetchSlice';
 import './App.scss';
 
 function App() {
-  const data = useSelector(state => state.animeArrayData.animeArrayData)
+  const data = useSelector(state => state.animeArrayData.animeArrayData);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(animeArrayDataThunk())
+  }, [dispatch])
+
   console.log(data)
+
+  const tg = window.Telegram.WebApp;
+  tg.MainButton.text = "peepo"
+
   return (
-    <div className="App">
-      <h1>Hi</h1>
+    <div className="wrapper">
+      {
+        data ? <p>Q</p>
+        // data.data.map(({mal_id, duration, episodes, genres, images, score, studios, title, trailer, year}) => {
+        //   return <div className="card" key={mal_id}
+        //     onClick = {(e) => {
+        //       e.currentTarget.classList.add("card_active")
+        //     }}
+        //   >
+        //     <div className="preview"
+        //       style={{background: `url(${images.jpg.image_url})`}}
+        //     >
+        //       <div className="score">
+        //         <p>{score}</p>
+        //       </div>
+        //     </div>
+        //     <div className="content">
+        //       <div className="close"
+        //         onClick={(e) => {
+        //           console.log('loh')
+        //           e.stopPropagation();
+        //           e.currentTarget.parentElement.parentElement.classList.remove("card_active")
+        //         }}
+        //       >
+        //         <div className="line-one"></div>
+        //         <div className="line-two"></div>
+        //       </div>
+        //     </div>
+        //     {
+        //       trailer.embed_url ? 
+        //       <div className='video-content'>
+        //         <p>Watch trailer</p>
+        //         <iframe className='video' width="318" height="180" 
+        //           src={trailer.embed_url} 
+        //           title="YouTube video player" 
+        //           frameborder="0" 
+        //           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        //           allowfullscreen>
+        //         </iframe> 
+        //       </div> : null
+        //     }
+        //     <div className="title">
+        //       <p>{title}</p>
+        //     </div>
+        //   </div>
+        // })
+        : <p>Is Loading...</p>
+      }
     </div>
   );
 }
