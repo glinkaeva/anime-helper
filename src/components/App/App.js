@@ -15,12 +15,10 @@ function App() {
   useEffect(() => {
     tg.ready();
     dispatch(animeArrayDataThunk())
-    console.log(tg.WebAppUser)
   }, [dispatch])
 
   console.log(data)
-  console.log(tg.WebAppUser)
-  
+  tg.backgroundColor = "#ffffff"
   tg.MainButton.text = "peepo"
   tg.MainButton.show();
 
