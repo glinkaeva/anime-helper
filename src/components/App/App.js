@@ -15,7 +15,6 @@ function App() {
   useEffect(() => {
     tg.ready();
     dispatch(animeArrayDataThunk())
-    console.log(tg.WebAppInitData)
   }, [dispatch])
 
   console.log(data)
@@ -23,6 +22,8 @@ function App() {
   
   tg.MainButton.text = "peepo"
   tg.MainButton.show();
+
+  console.log(tg.WebAppInitData)
 
   return (
     <div className="wrapper">
