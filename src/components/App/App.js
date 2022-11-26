@@ -15,6 +15,7 @@ function App() {
   useEffect(() => {
     tg.ready();
     dispatch(animeArrayDataThunk())
+    console.log(tg.WebAppInitData)
   }, [dispatch])
 
   console.log(data)
@@ -29,13 +30,13 @@ function App() {
         data ? <>
           <p>Q</p>
           <ul>
-            <li>Версия: {tg.version}</li>
+            {/* <li>Версия: {tg.version}</li> */}
             {/* <li>id: {tg.WebAppInitData.id}</li> */}
-            <li>имя пользователя: {tg.WebAppInitData.first_name}</li>
+            {/* <li>имя пользователя: {tg.WebAppInitData.first_name}</li>
             <li>никнейм: {tg.WebAppInitData.username}</li>
             <li>language_code: {tg.WebAppInitData.language_code}</li>
             <li>premium: {tg.WebAppInitData.is_premium}</li>
-            <li>photo url: {tg.WebAppInitData.photo_url}</li>
+            <li>photo url: {tg.WebAppInitData.photo_url}</li> */}
           </ul>
         </>
         // data.data.map(({mal_id, duration, episodes, genres, images, score, studios, title, trailer, year}) => {
