@@ -30,7 +30,7 @@ function App() {
           <p>Q</p>
           <ul>
             <li>Версия: {tg.version}</li>
-            <li>id: {tg.WebAppInitData.id}</li>
+            {/* <li>id: {tg.WebAppInitData.id}</li> */}
             <li>имя пользователя: {tg.WebAppInitData.first_name}</li>
             <li>никнейм: {tg.WebAppInitData.username}</li>
             <li>language_code: {tg.WebAppInitData.language_code}</li>
