@@ -23,7 +23,7 @@ function App() {
   }, [dispatch])
 
   console.log(data)
-  // tg.backgroundColor = "#ffffff"
+  tg.backgroundColor = "#ffffff"
   // tg.headerColor = "#707920"
   // tg.MainButton.text = "peepo"
   // tg.MainButton.show();
