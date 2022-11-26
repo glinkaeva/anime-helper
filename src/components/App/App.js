@@ -15,15 +15,14 @@ function App() {
   useEffect(() => {
     tg.ready();
     dispatch(animeArrayDataThunk())
+    console.log(tg.WebAppUser)
   }, [dispatch])
 
   console.log(data)
-
+  console.log(tg.WebAppUser)
   
   tg.MainButton.text = "peepo"
   tg.MainButton.show();
-
-  console.log(tg.WebAppUser)
 
   return (
     <div className="wrapper">
@@ -32,12 +31,6 @@ function App() {
           <p>Q</p>
           <ul>
             <li>Версия: {tg.version}</li>
-            <li>id: {tg.WebAppUser.id}</li>
-            <li>имя пользователя: {tg.WebAppUser.first_name}</li>
-            <li>никнейм: {tg.WebAppUser.username}</li>
-            <li>language_code: {tg.WebAppUser.language_code}</li>
-            <li>premium: {tg.WebAppUser.is_premium}</li>
-            <li>photo url: {tg.WebAppUser.photo_url}</li>
           </ul>
         </>
         // data.data.map(({mal_id, duration, episodes, genres, images, score, studios, title, trailer, year}) => {
