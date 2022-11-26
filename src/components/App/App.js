@@ -28,12 +28,15 @@ function App() {
       {
         data ? <>
           <p>Q</p>
-          <button
-            onClick={() => {
-              tg.PopupParams.message = tg.version;
-              tg.PopupParams.show();
-            }}
-          >popup</button>
+          <ul>
+            <li>Версия: {tg.version}</li>
+            <li>id: {tg.WebAppInitData.id}</li>
+            <li>имя пользователя: {tg.WebAppInitData.first_name}</li>
+            <li>никнейм: {tg.WebAppInitData.username}</li>
+            <li>language_code: {tg.WebAppInitData.language_code}</li>
+            <li>premium: {tg.WebAppInitData.is_premium}</li>
+            <li>photo url: {tg.WebAppInitData.photo_url}</li>
+          </ul>
         </>
         // data.data.map(({mal_id, duration, episodes, genres, images, score, studios, title, trailer, year}) => {
         //   return <div className="card" key={mal_id}
