@@ -4,18 +4,24 @@ import { useSelector } from 'react-redux';
 import { animeArrayDataThunk } from '../../slice/animeArrayDataFetchSlice';
 import './App.scss';
 
+
+const tg = window.Telegram.WebApp;
+
+
 function App() {
   const data = useSelector(state => state.animeArrayData.animeArrayData);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    tg.ready();
     dispatch(animeArrayDataThunk())
   }, [dispatch])
 
   console.log(data)
 
-  const tg = window.Telegram.WebApp;
+  
   tg.MainButton.text = "peepo"
+  tg.MainButton.show();
 
   return (
     <div className="wrapper">
