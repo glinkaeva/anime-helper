@@ -26,7 +26,14 @@ function App() {
   return (
     <div className="wrapper">
       {
-        data ? <p>Q</p>
+        data ? <>
+          <p>Q</p>
+          <button
+            onClick={() => {
+              tg.PopupParams.message = tg.version
+            }}
+          >popup</button>
+        </>
         // data.data.map(({mal_id, duration, episodes, genres, images, score, studios, title, trailer, year}) => {
         //   return <div className="card" key={mal_id}
         //     onClick = {(e) => {
