@@ -25,8 +25,8 @@ function App() {
   console.log(data)
   tg.backgroundColor = "#ffffff"
   // tg.headerColor = "#707920"
-  // tg.MainButton.text = "peepo"
-  // tg.MainButton.show();
+  tg.MainButton.text = "peepo"
+  tg.MainButton.show();
   // tg.BackButton.show();
 
   // console.log(tg.viewportStableHeight)
