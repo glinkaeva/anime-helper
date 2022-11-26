@@ -30,7 +30,8 @@ function App() {
           <p>Q</p>
           <button
             onClick={() => {
-              tg.PopupParams.message = tg.version
+              tg.PopupParams.message = tg.version;
+              tg.PopupParams.show();
             }}
           >popup</button>
         </>
