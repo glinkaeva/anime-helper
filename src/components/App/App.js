@@ -23,13 +23,13 @@ function App() {
   }, [dispatch])
 
   console.log(data)
-  tg.backgroundColor = "#ffffff"
-  tg.headerColor = "#707920"
-  tg.MainButton.text = "peepo"
-  tg.MainButton.show();
-  tg.BackButton.show();
+  // tg.backgroundColor = "#ffffff"
+  // tg.headerColor = "#707920"
+  // tg.MainButton.text = "peepo"
+  // tg.MainButton.show();
+  // tg.BackButton.show();
 
-  console.log(tg.viewportStableHeight)
+  // console.log(tg.viewportStableHeight)
 
   return (
     <div className="wrapper">
