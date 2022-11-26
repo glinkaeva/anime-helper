@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+// подумать как установить headers - консоль ругается
+// https://stackoverflow.com/questions/23341765/getting-neterr-blocked-by-client-error-on-some-ajax-calls
 export const animeArrayDataThunk = createAsyncThunk(
   'anime/animeArrayDataThunk', async( id, { rejectWithValue }) => {
     try {
